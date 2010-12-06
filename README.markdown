@@ -10,16 +10,29 @@ Hopefuly now, we have PHP 5.3 and its solid OOP implementation.
 SimplePHPEasyPlus lets you make this addition in a more fashionable way, using real OOP.
 It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do is:
 
-    $numberCollection = new NumberCollection();
+    use SimplePHPEasyPlus\Number\NumberCollection;
+    use SimplePHPEasyPlus\Number\SimpleNumber;
+    use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
+    use SimplePHPEasyPlus\Iterator\CallbackIterator;
+    use SimplePHPEasyPlus\Operator\AdditionOperator;
+    use SimplePHPEasyPlus\Operation\ArithmeticOperation;
+    use SimplePHPEasyPlus\Operation\OperationStream;
+    use SimplePHPEasyPlus\Engine;
+    use SimplePHPEasyPlus\Calcul;
+    use SimplePHPEasyPlus\Calcul\CalculRunner;
 
-    $numberReader = new NumberStringReader('1');
-    $number = new Number($numberReader->read());
+    $numberCollection= new NumberCollection();
 
-    $numberCollection->add(clone $number);
-    $numberCollection->add(clone $number);
+    $numberParser = new SimpleNumberStringParser();
+    $firstNumber = new Number($numberParser->parse('1'));
+    $numberCollection->add($firstNumber);
+
+    $numberParser = new SimpleNumberStringParser();
+    $secondNumber = new Number($numberParser->parse('1'));
+    $numberCollection->add($firstNumber);
 
     $iterator = new CallbackIterator();
-    $addition = new Addition($iterator);
+    $addition = new AdditionOperator($iterator);
 
     $operation = new ArithmeticOperation();
     $operation->setOperator($addition);

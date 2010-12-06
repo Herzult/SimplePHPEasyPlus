@@ -2,6 +2,14 @@
 
 use SimplePHPEasyPlus\Number\NumberCollection;
 use SimplePHPEasyPlus\Number\SimpleNumber;
+use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
+use SimplePHPEasyPlus\Iterator\CallbackIterator;
+use SimplePHPEasyPlus\Operator\AdditionOperator;
+use SimplePHPEasyPlus\Operation\ArithmeticOperation;
+use SimplePHPEasyPlus\Operation\OperationStream;
+use SimplePHPEasyPlus\Engine;
+use SimplePHPEasyPlus\Calcul;
+use SimplePHPEasyPlus\Calcul\CalculRunner;
 
 class AdditionTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +27,7 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
         $numberCollection->add(clone $number);
 
         $iterator = new CallbackIterator();
-        $addition = new Addition($iterator);
+        $addition = new AdditionOperator($iterator);
 
         $operation = new ArithmeticOperation();
         $operation->setOperator($addition);
