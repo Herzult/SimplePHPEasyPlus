@@ -1,4 +1,4 @@
-This awesome yet simple and pragmatic PHP library performs an addition of two numbers.
+### This awesome yet simple and pragmatic PHP library performs an addition of two numbers.
 
 In early stages of Internet, developers were forced to work with poor, dry, functional, horrific languages.
 Everything had to be done through austere functions and operators. There was no objects. No interfaces. No dependency injection.
@@ -13,10 +13,10 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
     $numberCollection= new NumberCollection();
 
     $numberReader = new NumberStringReader('1');
-    $number = new Number($numberReader);
+    $number = new Number($numberReader->read());
 
-    $numberCollection->add(new Number(1));
-    $numberCollection->add(new Number(1));
+    $numberCollection->add(clone $number);
+    $numberCollection->add(clone $number);
 
     $iterator = new CallbackIterator();
     $addition = new Addition($iterator);

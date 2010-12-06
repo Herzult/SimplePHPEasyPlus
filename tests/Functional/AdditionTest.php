@@ -7,8 +7,7 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddition()
     {
-        $numberCollectionGenerator = new NumberCollectionGenerator('NumberCollection');
-        $numberCollection = $numberCollectionGenerator->generate();
+        $numberCollection= new NumberCollection();
 
         $numberReader = new NumberStringReader('1');
         $number = new Number($numberReader);
