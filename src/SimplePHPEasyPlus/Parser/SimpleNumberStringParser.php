@@ -2,7 +2,7 @@
 
 namespace SimplePHPEasyPlus\Parser;
 
-class SimpleNumberStringParser implements SimpleNumberStringParser
+class SimpleNumberStringParser implements SimpleNumberStringParserInterface
 {
     /**
      * Parses the given string and returns its numeric value
