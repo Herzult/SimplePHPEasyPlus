@@ -13,8 +13,10 @@ class SimpleNumberStringParser implements SimpleNumberStringParserInterface
      */
     public function parse($string)
     {
-        if ( ! is_numeric($string)) {
-           throw new SimpleNumberStringParserException('Invalid numeric value.');
+        if ( ! is_string($string)) {
+            throw new ParserInvalidArgumentException('This is not a string.');
+        } elseif ( ! is_numeric($string)) {
+            throw new ParserInvalidArgumentException('Invalid numeric value.');
         }
 
         return floatval($string);
