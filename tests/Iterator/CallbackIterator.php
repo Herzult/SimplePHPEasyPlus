@@ -6,14 +6,16 @@ class CallbackIteratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testIterate()
     {
-        $items = array(1, 2);
+        $itemMock = $this->getMock('stdClass', array('test'));
+        $itemMock->expects($this->once())
+            ->method('test');
+        $items = array($itemMock);
         $iteratorable = $this->getMock('SimplePHPEasyPlus\Iterator\IteratorableInterface', array('getItems'), array(), '');
         $iteratorable->expects($this->once())
             ->method('getItems')
             ->will($this->returnValue($items));
-        $closure = function($item) { $item++; };
+        $closure = function($item) { $item->test(); };
         $iterator = new CallbackIterator($closure);
         $iterator->iterate($iteratorable);
-        $this->assertSame(array(2, 3), $items);
     }
 }
