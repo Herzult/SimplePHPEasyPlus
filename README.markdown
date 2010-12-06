@@ -10,7 +10,7 @@ Hopefuly now, we have PHP 5.3 and its solid OOP implementation.
 SimplePHPEasyPlus lets you make this addition in a more fashionable way, using real OOP.
 It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do is:
 
-    $numberCollection= new NumberCollection();
+    $numberCollection = new NumberCollection();
 
     $numberReader = new NumberStringReader('1');
     $number = new Number($numberReader->read());

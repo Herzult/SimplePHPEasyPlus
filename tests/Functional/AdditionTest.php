@@ -10,7 +10,7 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddition()
     {
-        $numberCollection= new NumberCollection();
+        $numberCollection = new NumberCollection();
 
         $numberParser = new SimpleNumberStringParser();
         $number = new Number($numberParser->parse('1'));
