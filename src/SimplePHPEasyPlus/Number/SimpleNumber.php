@@ -17,7 +17,7 @@ class SimpleNumber extends Number implements SimpleNumberInterface
     public function __construct($value)
     {
         if ( ! is_float($value)) {
-            throw new SimpleNumberException('The given value must be a float.');
+            throw new NumberInvalidArgumentException('The given value must be a float.');
         }
 
         $this->value = $value;
