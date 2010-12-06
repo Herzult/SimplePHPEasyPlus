@@ -1,10 +1,11 @@
 <?php
 
 namespace SimplePHPEasyPlus\Operator;
+use SimplePHPEasyPlus\Number;
 
-class AdditionOperator extends CallbackOperator implements OperatorInterface
+class AdditionOperator implements OperatorInterface
 {
-    protected function atomicOperation(NumberInterface $numberOne, NumberInterface $numberTwo)
+    protected function process(NumberInterface $numberOne, NumberInterface $numberTwo)
     {
         #FIXME this is damn ugly! Sorry for the shameful hack
         $resultClass = get_class($numberOne);

@@ -1,8 +1,9 @@
 <?php
 
 namespace SimplePHPEasyPlus\Operator;
+use SimplePHPEasyPlus\Number;
 
 interface OperatorInterface
 {
-    function process(CollectionInterface $numberCollection);
+    function process(NumberInterface $firstNumber, NumberInterface $secondNumber);
 }
