@@ -1,0 +1,11 @@
+<?php
+
+require_once __DIR__.'/src/Autoload/UniversalClassLoader.php';
+
+use SimplePHPEasyPlus\Autoload\UniversalClassLoader;
+
+$loader = new UniversalClassLoader();
+$loader->registerNamespaces(array(
+    'SimplePHPEasyPlus' => __DIR__.'/src',
+));
+$loader->register();
