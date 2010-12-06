@@ -2,6 +2,8 @@
 
 namespace SimplePHPEasyPlus\Number;
 
+use ArrayObject;
+use OutOfRangeException;
 use SimplePHPEasyPlus\Collection\CollectionInterface;
 use SimplePHPEasyPlus\Collection\CollectionItemInterface;
 
@@ -20,7 +22,7 @@ class NumberCollection implements CollectionInterface
      */
     public function __construct()
     {
-        $this->numbers = new \ArrayObject();
+        $this->numbers = new ArrayObject();
     }
 
     /**
@@ -30,6 +32,10 @@ class NumberCollection implements CollectionInterface
      */
     public function add(CollectionItemInterface $number)
     {
+        if (2 === $this->numbers->count()) {
+            throw new OutOfRangeException('The number collection can not contain more than two numbers.');
+        }
+
         $this->numbers->append($number);
     }
 
