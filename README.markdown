@@ -1,0 +1,43 @@
+This awesome yet simple and pragmatic PHP library performs an addition of two numbers.
+
+In early stages of Internet, developers were forced to work with poor, dry, functional, horrific languages.
+Everything had to be done through austere functions and operators. There was no objects. No interfaces. No dependency injection.
+
+For example, to make something as simple as an addition, our dads had to write: `1+1`.
+Yeah, really.
+
+Hopefuly now, we have PHP 5.3 and its solid OOP implementation.
+SimplePHPEasyPlus lets you make this addition in a more fashionable way, using real OOP.
+It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do is:
+
+    $numberCollection= new NumberCollection();
+
+    $numberReader = new NumberStringReader('1');
+    $number = new Number($numberReader);
+
+    $numberCollection->add(new Number(1));
+    $numberCollection->add(new Number(1));
+
+    $iterator = new CallbackIterator();
+    $addition = new Addition($iterator);
+
+    $operation = new ArithmeticOperation();
+    $operation->setOperator($addition);
+
+    $iterator = new CallbackIterator();
+    $operationStream = new OperationStream($iterator);
+    $operationStream->addOperation($operation);
+
+    $engine = new Engine();
+    $engine->setOperationStream($operationStream);
+
+    $calcul = new Calcul();
+    $calcul->setEngine($engine);
+    $calcul->setNumberCollection($numberCollection);
+
+    $runner = new CalculRunner();
+
+    $result = $runner->run($calcul);
+    $numericResult = $result->getNumericValue(); // 2
+
+This awesome library is in early stage of development. Come back to check for updates.
