@@ -8,16 +8,17 @@ abstract class CallbackOperator extends Operator
     {
         $result = new Result();
 
-        $closure = $this->getClosure();
+        $closure = $this->createClosure();
+        $this->operator->setClosure($closure);
 
-        $this->operator->iterate($numberCollection, $closure);
+        $this->operator->iterate($numberCollection);
 
         return $result;
     }
 
-    public function getClosure()
+    public function createClosure()
     {
-        return function(NumberInterface $number) use (NumberInterface $result)
+        return function(NumberInterface $number) use ($result)
         {
             $result = $this->atomicOperation($result->getNumericValue(), $number);
         };

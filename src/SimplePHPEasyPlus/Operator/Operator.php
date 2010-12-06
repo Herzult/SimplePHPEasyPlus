@@ -1,6 +1,7 @@
 <?php
 
 namespace SimplePHPEasyPlus\Operator;
+use SimplePHPEasyPlus\Iterator\IteratorInterface;
 
 abstract class Operator
 {

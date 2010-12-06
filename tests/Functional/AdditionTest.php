@@ -35,11 +35,11 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
 
         $numberCollection->add($secondNumberProxy);
 
-        $iterator = new CallbackIterator();
-        $addition = new AdditionOperator($iterator);
+        $addition = new AdditionOperator();
 
         $operation = new ArithmeticOperation();
         $operation->setOperator($addition);
+        $operation->setIterator($iterator);
 
         $iterator = new CallbackIterator();
         $operationStream = new OperationStream($iterator);

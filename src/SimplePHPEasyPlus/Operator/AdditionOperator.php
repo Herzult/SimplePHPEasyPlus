@@ -9,7 +9,8 @@ class AdditionOperator extends CallbackOperator implements OperatorInterface
         #FIXME this is damn ugly! Sorry for the shameful hack
         $resultClass = get_class($numberOne);
 
-        $result = new $resultClass($numberOne->getValue() + $numberTwo->getValue());
+        $numbers = array($numberOne->getValue(), $numberTwo->getValue());
+        $result = new $resultClass(array_sum($numbers));
 
         return $result;
     }

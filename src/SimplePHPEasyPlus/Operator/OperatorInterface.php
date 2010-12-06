@@ -4,5 +4,5 @@ namespace SimplePHPEasyPlus\Operator;
 
 interface OperatorInterface
 {
-    function append(CollectionItemInterface $item);
+    function process(CollectionInterface $numberCollection);
 }
