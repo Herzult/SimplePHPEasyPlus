@@ -55,7 +55,7 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
         $runner = new CalculRunner();
 
         $result = $runner->run($calcul);
-        $numericResult = $result->getNumericValue();
+        $numericResult = $result->getValue();
 
         $this->assertEquals(2, $numericResult);
     }

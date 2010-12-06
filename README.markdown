@@ -57,6 +57,6 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
     $runner = new CalculRunner();
 
     $result = $runner->run($calcul);
-    $numericResult = $result->getNumericValue(); // 2
+    $numericResult = $result->getValue(); // 2
 
 This awesome library is in early stage of development. Come back to check for updates.
