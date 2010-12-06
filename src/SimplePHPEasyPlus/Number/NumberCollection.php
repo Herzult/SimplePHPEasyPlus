@@ -3,6 +3,7 @@
 namespace SimplePHPEasyPlus\Number;
 
 use SimplePHPEasyPlus\Collection\CollectionInterface;
+use SimplePHPEasyPlus\Collection\CollectionItemInterface;
 
 /**
  * Represents a number collection
@@ -25,9 +26,9 @@ class NumberCollection implements CollectionInterface
     /**
      * Adds a number to the collection
      *
-     * @param  Number $number
+     * @param  CollectionItemInterface $number
      */
-    public function add(Number $number)
+    public function add(CollectionItemInterface $number)
     {
         $this->numbers->append($number);
     }
