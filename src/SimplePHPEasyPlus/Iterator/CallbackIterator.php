@@ -1,6 +1,8 @@
 <?php
 
 namespace SimplePHPEasyPlus\Iterator;
+
+use RuntimeException;
 use Closure;
 
 class CallbackIterator implements IteratorInterface
