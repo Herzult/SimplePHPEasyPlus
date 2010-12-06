@@ -21,15 +21,19 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
     use SimplePHPEasyPlus\Calcul;
     use SimplePHPEasyPlus\Calcul\CalculRunner;
 
-    $numberCollection= new NumberCollection();
+    $numberCollection = new NumberCollection();
 
     $numberParser = new SimpleNumberStringParser();
-    $firstNumber = new Number($numberParser->parse('1'));
+
+    $firstParsedNumber = $numberParser->parse('1');
+    $firstNumber = new SimpleNumber($firstParsedNumber);
+
     $numberCollection->add($firstNumber);
 
-    $numberParser = new SimpleNumberStringParser();
-    $secondNumber = new Number($numberParser->parse('1'));
-    $numberCollection->add($firstNumber);
+    $secondParsedNumber = $numberParser->parse('1');
+    $secondNumber = new SimpleNumber($secondParsedNumber);
+
+    $numberCollection->add($secondNumber);
 
     $iterator = new CallbackIterator();
     $addition = new AdditionOperator($iterator);

@@ -21,10 +21,16 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
         $numberCollection = new NumberCollection();
 
         $numberParser = new SimpleNumberStringParser();
-        $number = new Number($numberParser->parse('1'));
 
-        $numberCollection->add(clone $number);
-        $numberCollection->add(clone $number);
+        $firstParsedNumber = $numberParser->parse('1');
+        $firstNumber = new SimpleNumber($firstParsedNumber);
+
+        $numberCollection->add($firstNumber);
+
+        $secondParsedNumber = $numberParser->parse('1');
+        $secondNumber = new SimpleNumber($secondParsedNumber);
+
+        $numberCollection->add($secondNumber);
 
         $iterator = new CallbackIterator();
         $addition = new AdditionOperator($iterator);
