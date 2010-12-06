@@ -1,5 +1,8 @@
 <?php
 
+use SimplePHPEasyPlus\Number\NumberCollection;
+use SimplePHPEasyPlus\Number\SimpleNumber;
+
 class AdditionTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -9,11 +12,11 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
     {
         $numberCollection= new NumberCollection();
 
-        $numberReader = new NumberStringReader('1');
-        $number = new Number($numberReader);
+        $numberParser = new SimpleNumberStringParser();
+        $number = new Number($numberParser->parse('1'));
 
-        $numberCollection->add(new Number(1));
-        $numberCollection->add(new Number(1));
+        $numberCollection->add(clone $number);
+        $numberCollection->add(clone $number);
 
         $iterator = new CallbackIterator();
         $addition = new Addition($iterator);
