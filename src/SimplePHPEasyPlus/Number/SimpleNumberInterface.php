@@ -2,12 +2,6 @@
 
 namespace SimplePHPEasyPlus\Number;
 
-interface SimpleNumberInterface
+interface SimpleNumberInterface extends NumberInterface
 {
-    /**
-     * This method must get the value of the number
-     *
-     * @return float
-     */
-    function getValue();
 }
