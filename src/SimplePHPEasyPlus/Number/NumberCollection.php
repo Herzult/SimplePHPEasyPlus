@@ -28,10 +28,9 @@ class NumberCollection implements CollectionInterface
      *
      * @param  CollectionItemInterface $number
      */
-    public function add(CollectionItemNumberProxyInterface $number)
+    public function add(CollectionItemInterface $number)
     {
         $this->numbers->append($number);
     }
-
 
 }

@@ -27,13 +27,15 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
 
     $firstParsedNumber = $numberParser->parse('1');
     $firstNumber = new SimpleNumber($firstParsedNumber);
+    $firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
 
-    $numberCollection->add($firstNumber);
+    $numberCollection->add($firstNumberProxy);
 
     $secondParsedNumber = $numberParser->parse('1');
     $secondNumber = new SimpleNumber($secondParsedNumber);
+    $secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
 
-    $numberCollection->add($secondNumber);
+    $numberCollection->add($secondNumberProxy);
 
     $iterator = new CallbackIterator();
     $addition = new AdditionOperator($iterator);

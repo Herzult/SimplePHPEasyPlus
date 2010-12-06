@@ -2,6 +2,7 @@
 
 use SimplePHPEasyPlus\Number\NumberCollection;
 use SimplePHPEasyPlus\Number\SimpleNumber;
+use SimplePHPEasyPlus\Number\CollectionItemNumberProxy;
 use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
 use SimplePHPEasyPlus\Iterator\CallbackIterator;
 use SimplePHPEasyPlus\Operator\AdditionOperator;
@@ -24,13 +25,15 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
 
         $firstParsedNumber = $numberParser->parse('1');
         $firstNumber = new SimpleNumber($firstParsedNumber);
+        $firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
 
-        $numberCollection->add($firstNumber);
+        $numberCollection->add($firstNumberProxy);
 
         $secondParsedNumber = $numberParser->parse('1');
         $secondNumber = new SimpleNumber($secondParsedNumber);
+        $secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
 
-        $numberCollection->add($secondNumber);
+        $numberCollection->add($secondNumberProxy);
 
         $iterator = new CallbackIterator();
         $addition = new AdditionOperator($iterator);
