@@ -5,16 +5,9 @@ namespace SimplePHPEasyPlus\Collection;
 interface CollectionInterface
 {
     /**
-     * This method must prepend an item to the collection
+     * This method must add an item to the collection
      *
      * @param  CollectionItemInterface $item
      */
-    public function prepend(CollectionItemInterface $item);
-
-    /**
-     * This method must append an item to the collection
-     *
-     * @param  CollectionItemInterface $item
-     */
-    public function append(CollectionItemInterface $item);
+    function add(CollectionItemInterface $item);
 }

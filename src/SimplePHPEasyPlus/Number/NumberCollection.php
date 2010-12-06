@@ -10,17 +10,27 @@ use SimplePHPEasyPlus\Collection\CollectionInterface;
 class NumberCollection implements CollectionInterface
 {
     /**
-     * @var array  An array of NumberValue items
+     * @var ArrayObject  An array of NumberValue items
      */
     protected $numbers;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->numbers = new \ArrayObject();
+    }
+
+    /**
      * Adds a number to the collection
      *
-     * @param  NumberInput $number
+     * @param  Number $number
      */
     public function add(Number $number)
     {
-        $this->numbers[] = $number;
+        $this->numbers->append($number);
     }
+
+
 }
