@@ -38,7 +38,16 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
         $addition = new AdditionOperator();
 
         $operation = new ArithmeticOperation($addition);
-        $operation->setIterator($iterator);
+
+        $engine = new Engine();
+        $engine->setOperation($operation);
+
+        $calcul = new Calcul($engine);
+
+        $runner = new CalculRunner($numberCollection);
+
+        $result = $runner->run($calcul);
+        $numericResult = $result->getValue();
 
         $iterator = new CallbackIterator();
         $operationStream = new OperationStream($iterator);
@@ -90,16 +99,10 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
 
         $operation = new ArithmeticOperation($addition);
 
-        $iterator = new CallbackIterator();
-        $operationStream = new OperationStream($iterator);
-        $operationStream->addOperation($operation);
-
         $engine = new Engine();
-        $engine->setOperationStream($operationStream);
+        $engine->setOperation($operation);
 
-        $calcul = new Calcul();
-        $calcul->setEngine($engine);
-        $calcul->setNumberCollection($numberCollection);
+        $calcul = new Calcul($engine);
 
         $runner = new CalculRunner();
 
