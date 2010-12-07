@@ -1,7 +1,7 @@
 <?php
 
 namespace SimplePHPEasyPlus\Operator;
-use SimplePHPEasyPlus\Number;
+use SimplePHPEasyPlus\Number\NumberInterface;
 
 interface OperatorInterface
 {

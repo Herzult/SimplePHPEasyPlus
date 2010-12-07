@@ -1,6 +1,6 @@
 <?php
 
-namepsace SimplePHPEasyPlus\Runner;
+namespace SimplePHPEasyPlus\Runner;
 
 abstract class Runner implements RunnerInterface
 {

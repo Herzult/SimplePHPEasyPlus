@@ -1,6 +1,7 @@
 <?php
 
 namespace SimplePHPEasyPlus\Collection;
+use SimplePHPEasyPlus\Collection\CollectionItemInterface;
 
 interface CollectionInterface
 {
@@ -10,4 +11,18 @@ interface CollectionInterface
      * @param  CollectionItemInterface $item
      */
     function add(CollectionItemInterface $item);
+
+    /**
+     * Gets the first item
+     *
+     * @return CollectionItemInterface
+     **/
+    public function getFirstItem();
+
+    /**
+     * Gets the second item
+     *
+     * @return CollectionItemInterface
+     **/
+    public function getSecondItem();
 }

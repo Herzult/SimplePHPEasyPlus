@@ -37,7 +37,7 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
 
     $numberCollection->add($secondNumberProxy);
 
-    $addition = new AdditionOperator();
+    $addition = new AdditionOperator(new Result());
 
     $operation = new ArithmeticOperation($addition);
 

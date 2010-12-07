@@ -9,7 +9,7 @@ use SimplePHPEasyPlus\Operator\AdditionOperator;
 use SimplePHPEasyPlus\Operation\ArithmeticOperation;
 use SimplePHPEasyPlus\Operation\OperationStream;
 use SimplePHPEasyPlus\Engine;
-use SimplePHPEasyPlus\Calcul;
+use SimplePHPEasyPlus\Calcul\Calcul;
 use SimplePHPEasyPlus\Calcul\CalculRunner;
 
 class AdditionTest extends \PHPUnit_Framework_TestCase
@@ -23,93 +23,33 @@ class AdditionTest extends \PHPUnit_Framework_TestCase
 
         $numberParser = new SimpleNumberStringParser();
 
-        $firstParsedNumber = $numberParser->parse('1');
+        $firstParsedNumber = $numberParser->parse('2');
         $firstNumber = new SimpleNumber($firstParsedNumber);
         $firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
 
         $numberCollection->add($firstNumberProxy);
 
-        $secondParsedNumber = $numberParser->parse('1');
+        $secondParsedNumber = $numberParser->parse('3');
         $secondNumber = new SimpleNumber($secondParsedNumber);
         $secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
 
         $numberCollection->add($secondNumberProxy);
 
-        $addition = new AdditionOperator();
+        $addition = new AdditionOperator('SimplePHPEasyPlus\Number\SimpleNumber');
 
         $operation = new ArithmeticOperation($addition);
 
-        $engine = new Engine();
-        $engine->setOperation($operation);
+        $engine = new Engine($operation);
 
-        $calcul = new Calcul($engine);
-
-        $runner = new CalculRunner($numberCollection);
-
-        $result = $runner->run($calcul);
-        $numericResult = $result->getValue();
-
-        $iterator = new CallbackIterator();
-        $operationStream = new OperationStream($iterator);
-        $operationStream->addOperation($operation);
-
-        $engine = new Engine();
-        $engine->setOperationStream($operationStream);
-
-        $calcul = new Calcul();
-        $calcul->setEngine($engine);
-        $calcul->setNumberCollection($numberCollection);
+        $calcul = new Calcul($engine, $numberCollection);
 
         $runner = new CalculRunner();
 
-        $result = $runner->run($calcul);
+        $runner->run($calcul);
+
+        $result = $calcul->getResult();
         $numericResult = $result->getValue();
 
-        $this->assertEquals(2, $numericResult);
+        $this->assertEquals(5, $numericResult);
     }
-
-    /**
-     * Verifies that 1 + 1 + 1 = 3
-     */
-    public function testComplexAddition()
-    {
-        $numberCollection = new NumberCollection();
-
-        $numberParser = new SimpleNumberStringParser();
-
-        $firstParsedNumber = $numberParser->parse('1');
-        $firstNumber = new SimpleNumber($firstParsedNumber);
-        $firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
-
-        $numberCollection->add($firstNumberProxy);
-
-        $secondParsedNumber = $numberParser->parse('1');
-        $secondNumber = new SimpleNumber($secondParsedNumber);
-        $secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
-
-        $numberCollection->add($secondNumberProxy);
-
-        $thirdParsedNumber = $numberParser->parse('1');
-        $thirdNumber = new SimpleNumber($thirdParsedNumber);
-        $thirdNumberProxy = new CollectionItemNumberProxy($thirdNumber);
-
-        $numberCollection->add($thirdNumberProxy);
-
-        $addition = new AdditionOperator();
-
-        $operation = new ArithmeticOperation($addition);
-
-        $engine = new Engine();
-        $engine->setOperation($operation);
-
-        $calcul = new Calcul($engine);
-
-        $runner = new CalculRunner();
-
-        $result = $runner->run($calcul);
-        $numericResult = $result->getValue();
-
-        $this->assertEquals(2, $numericResult);
-    }
-
 }

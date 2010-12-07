@@ -39,4 +39,23 @@ class NumberCollection implements CollectionInterface
         $this->numbers->append($number);
     }
 
+    /**
+     * Gets the first item
+     *
+     * @return CollectionItemInterface
+     **/
+    public function getFirstItem()
+    {
+        return $this->numbers[0];
+    }
+
+    /**
+     * Gets the second item
+     *
+     * @return CollectionItemInterface
+     **/
+    public function getSecondItem()
+    {
+        return $this->numbers[1];
+    }
 }

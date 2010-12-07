@@ -1,14 +1,20 @@
 <?php
 
 namespace SimplePHPEasyPlus\Operator;
-use SimplePHPEasyPlus\Number;
+use SimplePHPEasyPlus\Number\NumberInterface;
 
 class AdditionOperator implements OperatorInterface
 {
-    protected function process(NumberInterface $numberOne, NumberInterface $numberTwo)
+    protected $resultClass;
+
+    public function __construct($resultClass)
     {
-        #FIXME this is damn ugly! Sorry for the shameful hack
-        $resultClass = get_class($numberOne);
+        $this->resultClass = $resultClass;
+    }
+
+    public function process(NumberInterface $numberOne, NumberInterface $numberTwo)
+    {
+        $resultClass = $this->resultClass;
 
         $numbers = array($numberOne->getValue(), $numberTwo->getValue());
         $result = new $resultClass(array_sum($numbers));

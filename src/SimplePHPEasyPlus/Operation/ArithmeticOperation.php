@@ -2,7 +2,7 @@
 
 namespace SimplePHPEasyPlus\Operation;
 
-use SimplePHPEasyPlus\OperatorInterface;
+use SimplePHPEasyPlus\Operator\OperatorInterface;
 use SimplePHPEasyPlus\Number\NumberCollection;
 
 class ArithmeticOperation implements OperationInterface
@@ -16,17 +16,7 @@ class ArithmeticOperation implements OperationInterface
 
     public function operate(NumberCollection $collection)
     {
-        foreach($collection as $index => $number) {
-            if($index === 0) {
-                $firstNumber = $number;
-            } elseif($index === 1) {
-                $secondNumber = $number;
-            } else {
-                throw new OutOfRangeException('A number collection must not have more (nor less) than 2 numbers.');
-            }
-        }
-
-        return $this->getOperator()->process($firstNumber, $secondNumber);
+        return $this->getOperator()->process($collection->getFirstItem(), $collection->getSecondItem());
     }
 
     protected function getOperator()

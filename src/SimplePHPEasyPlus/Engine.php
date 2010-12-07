@@ -3,7 +3,7 @@
 namespace SimplePHPEasyPlus;
 
 use SimplePHPEasyPlus\Operation\OperationInterface;
-use SimplePHPEasyPlus\NumberCollection\Number;
+use SimplePHPEasyPlus\Number\NumberCollection;
 
 class Engine
 {
@@ -16,6 +16,6 @@ class Engine
 
     public function run(NumberCollection $collection)
     {
-        $this->operation->operate($collection);
+        return $this->operation->operate($collection);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace SimplePHPEasyPlus\Operation;
 
-use SimplePHPEasyPlus\Collection\CollectionInterface;
+use SimplePHPEasyPlus\Number\NumberCollection;
 
 interface OperationInterface
 {
@@ -13,5 +13,5 @@ interface OperationInterface
      *
      * @return OperationResult
      */
-    public function operate(CollectionInterface $collection);
+    public function operate(NumberCollection $collection);
 }
