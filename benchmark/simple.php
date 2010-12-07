@@ -52,17 +52,18 @@ $number = 100000;
 $a = $b = 1;
 
 $start = microtime(true);
-for($i=0;$i<10000;++$i) {
-    $a+$b;
+for($i = 0 ; $i < $number ; ++$i) {
+    $a + $b;
 }
 $time1 = microtime(true) - $start;
-printf('Native PHP "+" operator: %01.2f ms.%s', $time1*1000, "\n");
+printf('For %d additions:%s', $number, "\n");;
+printf('    Native PHP "+" operator: %01.2f ms.%s', $time1*$number, "\n");
 
 $start = microtime(true);
-for($i=0;$i<10000;++$i) {
+for($i = 0 ; $i < $number ; ++$i) {
     process($a, $b);
 }
 $time2 = microtime(true) - $start;
-printf('SimplePHPEasyPlus: %01.2f ms.%s', $time2*1000, "\n");
+printf('    SimplePHPEasyPlus: %01.2f ms.%s', $time2*$number, "\n");
 
-printf('Ratio: %01.2f%s', $time2/$time1, "\n");
+printf('%s=> SimplePHPEasyPlus is %d slower than Native PHP%s', "\n", $time2/$time1, "\n");
