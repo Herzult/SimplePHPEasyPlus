@@ -12,15 +12,17 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
 
     use SimplePHPEasyPlus\Number\NumberCollection;
     use SimplePHPEasyPlus\Number\SimpleNumber;
+    use SimplePHPEasyPlus\Number\CollectionItemNumberProxy;
     use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
     use SimplePHPEasyPlus\Iterator\CallbackIterator;
     use SimplePHPEasyPlus\Operator\AdditionOperator;
     use SimplePHPEasyPlus\Operation\ArithmeticOperation;
     use SimplePHPEasyPlus\Operation\OperationStream;
     use SimplePHPEasyPlus\Engine;
-    use SimplePHPEasyPlus\Calcul;
+    use SimplePHPEasyPlus\Calcul\Calcul;
     use SimplePHPEasyPlus\Calcul\CalculRunner;
 
+    
     $numberCollection = new NumberCollection();
 
     $numberParser = new SimpleNumberStringParser();
@@ -37,24 +39,19 @@ It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do i
 
     $numberCollection->add($secondNumberProxy);
 
-    $addition = new AdditionOperator(new Result());
+    $addition = new AdditionOperator('SimplePHPEasyPlus\Number\SimpleNumber');
 
     $operation = new ArithmeticOperation($addition);
 
-    $iterator = new CallbackIterator();
-    $operationStream = new OperationStream($iterator);
-    $operationStream->addOperation($operation);
+    $engine = new Engine($operation);
 
-    $engine = new Engine();
-    $engine->setOperationStream($operationStream);
-
-    $calcul = new Calcul();
-    $calcul->setEngine($engine);
-    $calcul->setNumberCollection($numberCollection);
+    $calcul = new Calcul($engine, $numberCollection);
 
     $runner = new CalculRunner();
 
-    $result = $runner->run($calcul);
+    $runner->run($calcul);
+
+    $result = $calcul->getResult();
     $numericResult = $result->getValue(); // 2
 
-This awesome library is in early stage of development. Come back to check for updates.
+This library is now available for production purposes. Enjoy!
