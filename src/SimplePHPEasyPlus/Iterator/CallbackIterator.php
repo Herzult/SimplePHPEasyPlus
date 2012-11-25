@@ -9,7 +9,7 @@ class CallbackIterator implements IteratorInterface
 {
     protected $closure;
 
-    public function setClosure(Closure $closure)
+    public function __construct(Closure $closure)
     {
         $this->closure = $closure;
     }
