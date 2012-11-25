@@ -10,48 +10,50 @@ Hopefuly now, we have PHP 5.3 and its solid OOP implementation.
 SimplePHPEasyPlus lets you make this addition in a more fashionable way, using real OOP.
 It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do is:
 
-    use SimplePHPEasyPlus\Number\NumberCollection;
-    use SimplePHPEasyPlus\Number\SimpleNumber;
-    use SimplePHPEasyPlus\Number\CollectionItemNumberProxy;
-    use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
-    use SimplePHPEasyPlus\Iterator\CallbackIterator;
-    use SimplePHPEasyPlus\Operator\AdditionOperator;
-    use SimplePHPEasyPlus\Operation\ArithmeticOperation;
-    use SimplePHPEasyPlus\Operation\OperationStream;
-    use SimplePHPEasyPlus\Engine;
-    use SimplePHPEasyPlus\Calcul\Calcul;
-    use SimplePHPEasyPlus\Calcul\CalculRunner;
+```php
+use SimplePHPEasyPlus\Number\NumberCollection;
+use SimplePHPEasyPlus\Number\SimpleNumber;
+use SimplePHPEasyPlus\Number\CollectionItemNumberProxy;
+use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
+use SimplePHPEasyPlus\Iterator\CallbackIterator;
+use SimplePHPEasyPlus\Operator\AdditionOperator;
+use SimplePHPEasyPlus\Operation\ArithmeticOperation;
+use SimplePHPEasyPlus\Operation\OperationStream;
+use SimplePHPEasyPlus\Engine;
+use SimplePHPEasyPlus\Calcul\Calcul;
+use SimplePHPEasyPlus\Calcul\CalculRunner;
 
-    
-    $numberCollection = new NumberCollection();
 
-    $numberParser = new SimpleNumberStringParser();
+$numberCollection = new NumberCollection();
 
-    $firstParsedNumber = $numberParser->parse('1');
-    $firstNumber = new SimpleNumber($firstParsedNumber);
-    $firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
+$numberParser = new SimpleNumberStringParser();
 
-    $numberCollection->add($firstNumberProxy);
+$firstParsedNumber = $numberParser->parse('1');
+$firstNumber = new SimpleNumber($firstParsedNumber);
+$firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
 
-    $secondParsedNumber = $numberParser->parse('1');
-    $secondNumber = new SimpleNumber($secondParsedNumber);
-    $secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
+$numberCollection->add($firstNumberProxy);
 
-    $numberCollection->add($secondNumberProxy);
+$secondParsedNumber = $numberParser->parse('1');
+$secondNumber = new SimpleNumber($secondParsedNumber);
+$secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
 
-    $addition = new AdditionOperator('SimplePHPEasyPlus\Number\SimpleNumber');
+$numberCollection->add($secondNumberProxy);
 
-    $operation = new ArithmeticOperation($addition);
+$addition = new AdditionOperator('SimplePHPEasyPlus\Number\SimpleNumber');
 
-    $engine = new Engine($operation);
+$operation = new ArithmeticOperation($addition);
 
-    $calcul = new Calcul($engine, $numberCollection);
+$engine = new Engine($operation);
 
-    $runner = new CalculRunner();
+$calcul = new Calcul($engine, $numberCollection);
 
-    $runner->run($calcul);
+$runner = new CalculRunner();
 
-    $result = $calcul->getResult();
-    $numericResult = $result->getValue(); // 2
+$runner->run($calcul);
+
+$result = $calcul->getResult();
+$numericResult = $result->getValue(); // 2
+```
 
 This library is now available for production purposes. Enjoy!
