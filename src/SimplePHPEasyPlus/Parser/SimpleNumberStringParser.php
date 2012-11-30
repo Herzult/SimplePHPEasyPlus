@@ -9,7 +9,7 @@ class SimpleNumberStringParser implements SimpleNumberStringParserInterface
      *
      * @param  string $string
      *
-     * @return flaot
+     * @return float
      */
     public function parse($string)
     {
