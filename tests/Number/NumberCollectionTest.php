@@ -22,6 +22,6 @@ class NumberCollectionTest extends PHPUnit_Framework_TestCase
             return;
         }
 
-        $this->fail('Excpected out of range exception has not been raised.');
+        $this->fail('Expected out of range exception has not been raised.');
     }
 }
