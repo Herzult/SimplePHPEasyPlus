@@ -1,4 +1,14 @@
 {
+    "name": "herzult/simple-php-easy-plus",
+    "description": "A simple, pragmatic numeric operation api written in PHP. It does addition.",
+    "keywords": ["addition"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Antoine Hérault",
+            "email": "antoine.herault@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-0": { "SimplePHPEasyPlus": "src" }
     }
