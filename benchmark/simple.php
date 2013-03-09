@@ -66,4 +66,10 @@ for($i = 0 ; $i < $number ; ++$i) {
 $time2 = microtime(true) - $start;
 printf('    SimplePHPEasyPlus: %01.2f ms.%s', $time2*$number, "\n");
 
-printf('%s=> SimplePHPEasyPlus is %d slower than Native PHP%s', "\n", $time2/$time1, "\n");
+printf('%s=> ', "\n");
+if ($time2 >= $time1) {
+  printf('SimplePHPEasyPlus is %.1fx slower than Native PHP', $time2/$time1);
+} else {
+  printf('SimplePHPEasyPlus is %.1fx faster than Native PHP', $time1/$time2);
+}
+printf('%s', "\n");
