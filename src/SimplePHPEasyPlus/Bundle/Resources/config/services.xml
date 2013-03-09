@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="simple_php_easy_plus.number_collection_builder.class">SimplePHPEasyPlus\Number\NumberCollectionBuilder</parameter>
+        <parameter key="simple_php_easy_plus.parser.simple_number_string_parser_factory.class">SimplePHPEasyPlus\Parser\SimpleNumberStringParserFactory</parameter>
+        <parameter key="simple_php_easy_plus.number.number_factory.class">SimplePHPEasyPlus\Number\SimpleNumberFactory</parameter>
+        <parameter key="simple_php_easy_plus.number.collection_item_number_proxy_factory.class">SimplePHPEasyPlus\Number\CollectionItemNumberProxyFactory</parameter>
+
+        <parameter key="simple_php_easy_plus.engine.class">SimplePHPEasyPlus\Engine</parameter>
+        <parameter key="simple_php_easy_plus.operation.class">SimplePHPEasyPlus\Operation\ArithmeticOperation</parameter>
+        <parameter key="simple_php_easy_plus.operator.addition.class">SimplePHPEasyPlus\Operator\AdditionOperator</parameter>
+        <parameter key="simple_php_easy_plus.operator.number.class">SimplePHPEasyPlus\Number\SimpleNumber</parameter>
+
+        <parameter key="simple_php_easy_plus.runner.class">SimplePHPEasyPlus\Calcul\CalculRunner</parameter>
+    </parameters>
+
+    <services>
+        <service id="simple_php_easy_plus.number_collection_builder" class="%simple_php_easy_plus.number_collection_builder.class%">
+            <argument type="service" id="simple_php_easy_plus.parser.simple_number_string_parser_factory"/>
+            <argument type="service" id="simple_php_easy_plus.number.number_factory"/>
+            <argument type="service" id="simple_php_easy_plus.number.collection_item_number_proxy_factory"/>
+        </service>
+
+        <service id="simple_php_easy_plus.engine" class="%simple_php_easy_plus.engine.class%">
+            <argument type="service" id="simple_php_easy_plus.operation"/>
+        </service>
+
+        <service id="simple_php_easy_plus.runner" class="%simple_php_easy_plus.runner.class%"></service>
+
+        <service id="simple_php_easy_plus.parser.simple_number_string_parser_factory" class="%simple_php_easy_plus.parser.simple_number_string_parser_factory.class%" public="false"></service>
+        <service id="simple_php_easy_plus.number.number_factory" class="%simple_php_easy_plus.number.number_factory.class%" public="false"></service>
+        <service id="simple_php_easy_plus.number.collection_item_number_proxy_factory" class="%simple_php_easy_plus.number.collection_item_number_proxy_factory.class%" public="false"></service>
+
+        <service id="simple_php_easy_plus.operation" class="%simple_php_easy_plus.operation.class%" public="false">
+            <argument type="service" id="simple_php_easy_plus.operator.addition"/>
+        </service>
+
+        <service id="simple_php_easy_plus.operator.addition" class="%simple_php_easy_plus.operator.addition.class%" public="false">
+            <argument>%simple_php_easy_plus.operator.number.class%</argument>
+        </service>
+    </services>
+</container>
