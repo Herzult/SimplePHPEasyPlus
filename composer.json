@@ -7,6 +7,10 @@
         {
             "name": "Antoine Hérault",
             "email": "antoine.herault@gmail.com"
+        },
+        {
+            "name": "Thibault Duplessis",
+            "email": "thibault.duplessis@gmail.com"
         }
     ],
     "autoload": {
