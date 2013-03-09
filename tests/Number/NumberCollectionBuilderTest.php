@@ -6,7 +6,7 @@ class NumberCollectionBuilderTest extends \PHPUnit_Framework_TestCase
 {
     public function testResolveShouldCallFactoriesForEachNumber()
     {
-        $parser = $this->getMock('SimplePHPEasyPlus\Parser\SimpleNumberStringParser');
+        $parser = $this->getMock('SimplePHPEasyPlus\Parser\SimpleNumberStringParserInterface');
         $parser->expects($this->at(0))
                ->method('parse')
                ->with('2')
