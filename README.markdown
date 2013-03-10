@@ -1,5 +1,7 @@
 ### This awesome yet simple and pragmatic PHP library performs an addition of two numbers.
 
+[![Build Status](https://secure.travis-ci.org/Herzult/SimplePHPEasyPlus.png)](http://travis-ci.org/Herzult/SimplePHPEasyPlus)
+
 In early stages of Internet, developers were forced to work with poor, dry, functional, horrific languages.
 Everything had to be done through austere functions and operators. There was no objects. No interfaces. No dependency injection.
 
