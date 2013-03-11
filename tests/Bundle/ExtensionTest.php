@@ -10,9 +10,9 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function testContainerConfig()
     {
-        $extension = new SimplePHPEasyPlusExtension();
-
         $container = new ContainerBuilder();
+
+        $extension = new SimplePHPEasyPlusExtension();
         $extension->load(array(), $container);
 
         $collectionBuilder = $container->get('simple_php_easy_plus.number_collection_builder');
