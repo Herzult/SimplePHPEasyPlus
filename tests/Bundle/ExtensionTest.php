@@ -32,4 +32,18 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(3, $calcul->getResult()->getValue());
     }
+
+    /** @test */
+    public function numberCollectionBuilderShouldHavePrototypeScope()
+    {
+        $container = new ContainerBuilder();
+
+        $extension = new SimplePHPEasyPlusExtension();
+        $extension->load(array(), $container);
+
+        $builder1 = $container->get('simple_php_easy_plus.number_collection_builder');
+        $builder2 = $container->get('simple_php_easy_plus.number_collection_builder');
+
+        $this->assertNotSame($builder2, $builder1);
+    }
 }

@@ -19,7 +19,7 @@
     </parameters>
 
     <services>
-        <service id="simple_php_easy_plus.number_collection_builder" class="%simple_php_easy_plus.number_collection_builder.class%">
+        <service id="simple_php_easy_plus.number_collection_builder" class="%simple_php_easy_plus.number_collection_builder.class%" scope="prototype">
             <argument type="service" id="simple_php_easy_plus.parser.simple_number_string_parser_factory"/>
             <argument type="service" id="simple_php_easy_plus.number.number_factory"/>
             <argument type="service" id="simple_php_easy_plus.number.collection_item_number_proxy_factory"/>
