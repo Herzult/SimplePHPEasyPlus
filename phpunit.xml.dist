@@ -10,6 +10,8 @@
          stopOnFailure="false"
          syntaxCheck="false"
          bootstrap="tests/bootstrap.php"
+         printerFile="vendor/whatthejeff/nyancat-phpunit-resultprinter/src/NyanCat/PHPUnit/ResultPrinter.php"
+         printerClass="NyanCat\PHPunit\ResultPrinter"
 >
     <testsuites>
         <testsuite name="SimplePHPEasyPlus Test Suite">
