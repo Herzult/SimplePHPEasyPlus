@@ -3,7 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/Herzult/SimplePHPEasyPlus.png)](http://travis-ci.org/Herzult/SimplePHPEasyPlus)
 
 In early stages of Internet, developers were forced to work with poor, dry, functional, horrific languages.
-Everything had to be done through austere functions and operators. There was no objects. No interfaces. No dependency injection.
+Everything had to be done through austere functions and operators. There were no objects. No interfaces. No dependency injection.
 
 For example, to make something as simple as an addition, our dads had to write: `1+1`.
 Yeah, really.
