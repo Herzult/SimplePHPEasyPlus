@@ -13,14 +13,9 @@ SimplePHPEasyPlus lets you make this addition in a more fashionable way, using r
 It is fast, simple, flexible and tested. To add `1` to `1`, all you have to do is:
 
 ```php
-use SimplePHPEasyPlus\Number\NumberCollection;
-use SimplePHPEasyPlus\Number\SimpleNumber;
-use SimplePHPEasyPlus\Number\CollectionItemNumberProxy;
-use SimplePHPEasyPlus\Parser\SimpleNumberStringParser;
-use SimplePHPEasyPlus\Iterator\CallbackIterator;
+use SimplePHPEasyPlus\Number\NumberCollectionBuilder;
 use SimplePHPEasyPlus\Operator\AdditionOperator;
 use SimplePHPEasyPlus\Operation\ArithmeticOperation;
-use SimplePHPEasyPlus\Operation\OperationStream;
 use SimplePHPEasyPlus\Engine;
 use SimplePHPEasyPlus\Calcul\Calcul;
 use SimplePHPEasyPlus\Calcul\CalculRunner;
