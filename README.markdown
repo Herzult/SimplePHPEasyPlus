@@ -25,22 +25,15 @@ use SimplePHPEasyPlus\Engine;
 use SimplePHPEasyPlus\Calcul\Calcul;
 use SimplePHPEasyPlus\Calcul\CalculRunner;
 
+$numberCollectionBuilder = new NumberCollectionBuilder(
+    new SimpleNumberStringParserFactory(),
+    new SimpleNumberFactory(),
+    new CollectionItemNumberProxyFactory()
+);
+$numberCollectionBuilder->add('2');
+$numberCollectionBuilder->add('3');
 
-$numberCollection = new NumberCollection();
-
-$numberParser = new SimpleNumberStringParser();
-
-$firstParsedNumber = $numberParser->parse('1');
-$firstNumber = new SimpleNumber($firstParsedNumber);
-$firstNumberProxy = new CollectionItemNumberProxy($firstNumber);
-
-$numberCollection->add($firstNumberProxy);
-
-$secondParsedNumber = $numberParser->parse('1');
-$secondNumber = new SimpleNumber($secondParsedNumber);
-$secondNumberProxy = new CollectionItemNumberProxy($secondNumber);
-
-$numberCollection->add($secondNumberProxy);
+$numberCollection = $numberCollectionBuilder->resolve();
 
 $addition = new AdditionOperator('SimplePHPEasyPlus\Number\SimpleNumber');
 
