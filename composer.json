@@ -15,7 +15,8 @@
     ],
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
-        "whatthejeff/nyancat-phpunit-resultprinter": "1.0.*@dev"
+        "whatthejeff/nyancat-phpunit-resultprinter": "1.0.*@dev",
+        "symfony/framework-bundle": "~2.1"
     },
     "autoload": {
         "psr-0": { "SimplePHPEasyPlus": "src" }
