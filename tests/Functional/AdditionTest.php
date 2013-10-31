@@ -15,7 +15,7 @@ use SimplePHPEasyPlus\Calcul\CalculRunner;
 class AdditionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Verifies that 1 + 1 = 2
+     * Verifies that 2 + 3 = 5
      */
     public function testSimpleAddition()
     {
