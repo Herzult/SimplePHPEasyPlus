@@ -13,7 +13,7 @@ use SimplePHPEasyPlus\Collection\CollectionItemInterface;
 class NumberCollection implements CollectionInterface
 {
     /**
-     * @var SplObjectStorage()  A traversable of NumberValue items
+     * @var SplObjectStorage  A traversable of NumberValue items
      */
     protected $numbers;
 
@@ -47,6 +47,7 @@ class NumberCollection implements CollectionInterface
     public function getFirstItem()
     {
         $this->numbers->rewind();
+
         return $this->numbers->current();
     }
 
@@ -59,6 +60,7 @@ class NumberCollection implements CollectionInterface
     {
         $this->numbers->rewind();
         $this->numbers->next();
+
         return $this->numbers->current();
     }
 }
