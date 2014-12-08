@@ -7,13 +7,24 @@ use SimplePHPEasyPlus\Number\NumberCollection;
 
 class Engine
 {
+    /**
+     * @var OperationInterface
+     */
     protected $operation;
 
-    public function __construct($operation)
+    /**
+     * @param OperationInterface $operation
+     */
+    public function __construct(OperationInterface $operation)
     {
         $this->operation = $operation;
     }
 
+    /**
+     * @param NumberCollection $collection
+     * 
+     * @return OperationResult
+     */
     public function run(NumberCollection $collection)
     {
         return $this->operation->operate($collection);
