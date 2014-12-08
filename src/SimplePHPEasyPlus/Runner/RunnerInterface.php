@@ -7,7 +7,7 @@ interface RunnerInterface
     /**
      * This method must run the given runnable
      *
-     * @param  RunnableInterface $runnable
+     * @param RunnableInterface $runnable
      */
-    function run(RunnableInterface $runnable);
+    public function run(RunnableInterface $runnable);
 }

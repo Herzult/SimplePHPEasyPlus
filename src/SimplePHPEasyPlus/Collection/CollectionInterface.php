@@ -1,16 +1,15 @@
 <?php
 
 namespace SimplePHPEasyPlus\Collection;
-use SimplePHPEasyPlus\Collection\CollectionItemInterface;
 
 interface CollectionInterface
 {
     /**
      * This method must add an item to the collection
      *
-     * @param  CollectionItemInterface $item
+     * @param CollectionItemInterface $item
      */
-    function add(CollectionItemInterface $item);
+    public function add(CollectionItemInterface $item);
 
     /**
      * Gets the first item

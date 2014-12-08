@@ -4,5 +4,5 @@ namespace SimplePHPEasyPlus\Parser;
 
 interface SimpleNumberStringParserInterface
 {
-    function parse($string);
+    public function parse($string);
 }

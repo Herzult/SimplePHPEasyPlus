@@ -7,5 +7,5 @@ interface RunnableInterface
     /**
      * This method must run the runnable object
      */
-    function run();
+    public function run();
 }

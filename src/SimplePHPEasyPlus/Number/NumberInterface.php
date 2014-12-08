@@ -9,5 +9,5 @@ interface NumberInterface
      *
      * @return float
      */
-    function getValue();
+    public function getValue();
 }

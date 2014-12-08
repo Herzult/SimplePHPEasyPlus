@@ -4,5 +4,5 @@ namespace SimplePHPEasyPlus\Iterator;
 
 interface IteratorableInterface
 {
-    function getItems();
+    public function getItems();
 }

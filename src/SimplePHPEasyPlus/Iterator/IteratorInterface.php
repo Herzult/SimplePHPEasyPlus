@@ -4,5 +4,5 @@ namespace SimplePHPEasyPlus\Iterator;
 
 interface IteratorInterface
 {
-    function iterate(IteratorableInterface $iteratorable);
+    public function iterate(IteratorableInterface $iteratorable);
 }

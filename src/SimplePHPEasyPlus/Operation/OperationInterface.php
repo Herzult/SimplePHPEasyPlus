@@ -9,7 +9,7 @@ interface OperationInterface
     /**
      * This method must operation on the given collection
      *
-     * @param  CollectionInterface $collection
+     * @param NumberCollection $collection
      *
      * @return OperationResult
      */
