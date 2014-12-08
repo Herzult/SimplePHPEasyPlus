@@ -1,6 +1,7 @@
 <?php
 
 namespace SimplePHPEasyPlus\Operator;
+
 use SimplePHPEasyPlus\Number\NumberInterface;
 
 class AdditionOperator implements OperatorInterface
@@ -12,6 +13,9 @@ class AdditionOperator implements OperatorInterface
         $this->resultClass = $resultClass;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function process(NumberInterface $numberOne, NumberInterface $numberTwo)
     {
         $resultClass = $this->resultClass;

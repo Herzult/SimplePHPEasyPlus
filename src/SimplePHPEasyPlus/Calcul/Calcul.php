@@ -26,7 +26,7 @@ class Calcul implements RunnableInterface
 
     public function getResult()
     {
-        if(null === $this->result) {
+        if (null === $this->result) {
             throw new RuntimeException('You must run me before');
         }
 

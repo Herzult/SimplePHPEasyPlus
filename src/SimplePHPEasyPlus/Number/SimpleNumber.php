@@ -12,11 +12,11 @@ class SimpleNumber extends Number implements SimpleNumberInterface
     /**
      * Constructor
      *
-     * @param  float $value
+     * @param float $value
      */
     public function __construct($value)
     {
-        if ( ! is_float($value)) {
+        if (! is_float($value)) {
             throw new NumberInvalidArgumentException('The given value must be a float.');
         }
 

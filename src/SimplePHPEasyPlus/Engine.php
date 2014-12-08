@@ -22,7 +22,7 @@ class Engine
 
     /**
      * @param NumberCollection $collection
-     * 
+     *
      * @return OperationResult
      */
     public function run(NumberCollection $collection)

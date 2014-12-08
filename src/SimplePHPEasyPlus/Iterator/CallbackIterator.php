@@ -2,7 +2,6 @@
 
 namespace SimplePHPEasyPlus\Iterator;
 
-use RuntimeException;
 use Closure;
 
 class CallbackIterator implements IteratorInterface
@@ -16,7 +15,7 @@ class CallbackIterator implements IteratorInterface
 
     public function iterate(IteratorableInterface $iteratorable)
     {
-        foreach($iteratorable->getItems() as $item) {
+        foreach ($iteratorable->getItems() as $item) {
             $this->apply($item);
         }
     }

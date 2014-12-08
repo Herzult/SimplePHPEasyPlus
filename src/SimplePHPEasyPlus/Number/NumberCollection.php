@@ -28,7 +28,7 @@ class NumberCollection implements CollectionInterface
     /**
      * Adds a number to the collection
      *
-     * @param  CollectionItemInterface $number
+     * @param CollectionItemInterface $number
      */
     public function add(CollectionItemInterface $number)
     {
