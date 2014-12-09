@@ -2,7 +2,7 @@
 
 namespace SimplePHPEasyPlus\Number;
 
-use ArrayObject;
+use SplObjectStorage;
 use OutOfRangeException;
 use SimplePHPEasyPlus\Collection\CollectionInterface;
 use SimplePHPEasyPlus\Collection\CollectionItemInterface;
@@ -13,7 +13,7 @@ use SimplePHPEasyPlus\Collection\CollectionItemInterface;
 class NumberCollection implements CollectionInterface
 {
     /**
-     * @var ArrayObject  An array of NumberValue items
+     * @var SplObjectStorage  A traversable of NumberValue items
      */
     protected $numbers;
 
@@ -22,7 +22,7 @@ class NumberCollection implements CollectionInterface
      */
     public function __construct()
     {
-        $this->numbers = new ArrayObject();
+        $this->numbers = new SplObjectStorage();
     }
 
     /**
@@ -36,7 +36,7 @@ class NumberCollection implements CollectionInterface
             throw new OutOfRangeException('The number collection can not contain more than two numbers.');
         }
 
-        $this->numbers->append($number);
+        $this->numbers->attach($number);
     }
 
     /**
@@ -46,7 +46,9 @@ class NumberCollection implements CollectionInterface
      **/
     public function getFirstItem()
     {
-        return $this->numbers[0];
+        $this->numbers->rewind();
+
+        return $this->numbers->current();
     }
 
     /**
@@ -56,6 +58,9 @@ class NumberCollection implements CollectionInterface
      **/
     public function getSecondItem()
     {
-        return $this->numbers[1];
+        $this->numbers->rewind();
+        $this->numbers->next();
+
+        return $this->numbers->current();
     }
 }
