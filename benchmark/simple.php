@@ -57,14 +57,14 @@ for($i = 0 ; $i < $number ; ++$i) {
 }
 $time1 = microtime(true) - $start;
 printf('For %d additions:%s', $number, "\n");;
-printf('    Native PHP "+" operator: %01.2f ms.%s', $time1*$number, "\n");
+printf('    Native PHP "+" operator: %01.2f ms.%s', $time1, "\n");
 
 $start = microtime(true);
 for($i = 0 ; $i < $number ; ++$i) {
     process($a, $b);
 }
 $time2 = microtime(true) - $start;
-printf('    SimplePHPEasyPlus: %01.2f ms.%s', $time2*$number, "\n");
+printf('    SimplePHPEasyPlus: %01.2f ms.%s', $time2, "\n");
 
 printf('%s=> ', "\n");
 if ($time2 >= $time1) {
