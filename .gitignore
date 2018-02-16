@@ -1,6 +1,4 @@
 # Ignoring directories.
-/.idea/
 /vendor/
 # Ignoring files.
-/composer.lock
 /composer.phar
