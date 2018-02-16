@@ -2,4 +2,5 @@
 /.idea/
 /vendor/
 # Ignoring files.
-composer.phar
+/composer.lock
+/composer.phar
