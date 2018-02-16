@@ -1,1 +1,4 @@
-vendor
+# Ignoring directories.
+/vendor/
+# Ignoring files.
+/composer.phar
